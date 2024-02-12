@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverFactory {
 
     private static AndroidDriver<MobileElement> driver;
-    static String app = System.getProperty("user.dir") + ("\\src\\test\\resources\\app\\");
+    static String app = System.getProperty("user.dir") + ("/src/test/resources/app/");
 
     //Este método é público e estático, e é usado para obter a instância do driver. Ele verifica se o driver já existe (não é nulo).
     //Se não existir, chama o método createDriver() para criar uma nova instância e, em seguida, retorna o driver.
