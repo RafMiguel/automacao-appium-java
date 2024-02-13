@@ -40,7 +40,7 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: mvn clean site -Dtest=DesafioFormularioRefatoradoTest.java
+        script: mvn clean site
 
     - name: Check test result
       run: |
