@@ -1,13 +1,12 @@
-package pages;
+package appium.pages;
 
-import appium.core.Methods;
+import appium.core.BasePage;
 import io.appium.java_client.MobileBy;
 
-public class MenuPage {
-    private final Methods dsl = new Methods();
+public class MenuPage extends BasePage {
 
     public void acessarFormulario(){
-        dsl.clicar(MobileBy.xpath("//android.widget.TextView[@text='Formulário']"));
+        clicar(MobileBy.xpath("//android.widget.TextView[@text='Formulário']"));
     }
 
 
