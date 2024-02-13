@@ -1,13 +1,13 @@
 package appium.core;
 
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import java.util.List;
-public class Methods {
+
+public class BasePage {
     AndroidDriver<MobileElement> driver = DriverFactory.getDriver();
 
     /**
@@ -66,8 +66,7 @@ public class Methods {
      *          encontrada no elemento
      */
     public List<MobileElement> obterLista(By el) {
-        List<MobileElement> lista = driver.findElements(el);
-        return lista;
+        return driver.findElements(el);
     }
 
     /**
@@ -102,14 +101,5 @@ public class Methods {
      * @param tempo the length of time to sleep in milliseconds
      * @throws RuntimeException if the sleep is interrupted
      */
-    public void aguardar(int tempo){
-        try {
-            Thread.sleep(tempo);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
 
 }

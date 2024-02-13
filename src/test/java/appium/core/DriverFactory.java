@@ -13,14 +13,12 @@ public class DriverFactory {
     private static AndroidDriver<MobileElement> driver;
     static String app = System.getProperty("user.dir") + ("/src/test/resources/app/");
 
-    //Este método é público e estático, e é usado para obter a instância do driver. Ele verifica se o driver já existe (não é nulo).
-    //Se não existir, chama o método createDriver() para criar uma nova instância e, em seguida, retorna o driver.
-
     /**
-     * This method is used to get the instance of the AndroidDriver.
-     * If the driver is null, it calls the createDriver() method to create a new instance.
-     * @return AndroidDriver<MobileElement> - the instance of the AndroidDriver.
+     * Este método é usado para obter a instância do AndroidDriver.
+     * Se o driver for nulo, ele chama o método createDriver() para criar uma nova instância.
+     * @return AndroidDriver<MobileElement> - a instância do AndroidDriver.
      */
+
     public static AndroidDriver<MobileElement> getDriver() {
         if (driver == null) {
             createDriver();
