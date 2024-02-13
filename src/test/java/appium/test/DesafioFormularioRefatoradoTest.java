@@ -1,16 +1,15 @@
-package test.appium;
+package appium.test;
 
-import appium.core.DriverFactory;
-import appium.core.Methods;
+import appium.core.BaseTest;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
-import pages.FormularioPage;
-import pages.MenuPage;
+import appium.pages.FormularioPage;
+import appium.pages.MenuPage;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //força execução em ordem dos testes
-public class DesafioFormularioRefatoradoTest {
+public class DesafioFormularioRefatoradoTest extends BaseTest {
 
-    private final Methods dsl = new Methods();
+   // private final Methods dsl = new Methods();
     private final MenuPage menu = new MenuPage();
     private final FormularioPage form = new FormularioPage();
 
@@ -19,12 +18,6 @@ public class DesafioFormularioRefatoradoTest {
         //driver = DriverFactory.getDriver();
         menu.acessarFormulario();
     }
-
-    @After
-    public void tearDown() {
-        DriverFactory.killDriver();
-    }
-
     @Test
     public void CT01_acessarFormularioEPreencherNome() {
         form.preencherCampoNome("Edward Kenway");
@@ -51,7 +44,7 @@ public class DesafioFormularioRefatoradoTest {
         Assert.assertEquals("false", form.switchHabilitado());
 
         form.salvarEscolhas();
-        dsl.aguardar(1000);
+        aguardar(1000);
     }
 
     @Test

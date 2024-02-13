@@ -1,4 +1,4 @@
-package test.appium;
+package appium.test;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
