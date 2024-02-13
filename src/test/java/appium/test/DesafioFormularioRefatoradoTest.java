@@ -1,10 +1,13 @@
 package appium.test;
 
 import appium.core.BaseTest;
-import org.junit.*;
-import org.junit.runners.MethodSorters;
 import appium.pages.FormularioPage;
 import appium.pages.MenuPage;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //força execução em ordem dos testes
 public class DesafioFormularioRefatoradoTest extends BaseTest {
@@ -44,7 +47,7 @@ public class DesafioFormularioRefatoradoTest extends BaseTest {
         Assert.assertEquals("false", form.switchHabilitado());
 
         form.salvarEscolhas();
-        aguardar(1000);
+        //aguardar(1000);
     }
 
     @Test

@@ -38,21 +38,21 @@ public class FormularioPage extends BasePage {
      *
      * @return The text of the selected item in the console dropdown.
      */
-    public String consoleEscolhido(){
+    public String consoleEscolhido() {
         return pegarTexto(MobileBy.xpath("//android.widget.Spinner/android.widget.TextView"));
     }
 
     /**
      * Clicks on the checkbox.
      */
-    public void clicarCheckbox(){
+    public void clicarCheckbox() {
         clicar(MobileBy.className("android.widget.CheckBox"));
     }
 
     /**
      * Clicks on the switch.
      */
-    public void clicarSwitch(){
+    public void clicarSwitch() {
         clicar(MobileBy.className("android.widget.Switch"));
     }
 
@@ -61,7 +61,7 @@ public class FormularioPage extends BasePage {
      *
      * @return The checked attribute of the checkbox.
      */
-    public String checkboxChecado(){
+    public String checkboxChecado() {
         return pegarAtributo(MobileBy.className("android.widget.CheckBox"), "checked");
     }
 
@@ -70,14 +70,14 @@ public class FormularioPage extends BasePage {
      *
      * @return The checked attribute of the switch.
      */
-    public String switchHabilitado(){
+    public String switchHabilitado() {
         return pegarAtributo(MobileBy.className("android.widget.Switch"), "checked");
     }
 
     /**
      * Clicks on the save button.
      */
-    public void salvarEscolhas(){
+    public void salvarEscolhas() {
         clicar(MobileBy.AccessibilityId("save"));
     }
 
@@ -86,7 +86,7 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved name.
      */
-    public String nomeSalvo(){
+    public String nomeSalvo() {
         return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Nome:')]"));
     }
 
@@ -95,7 +95,7 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved console.
      */
-    public String consoleSalvo(){
+    public String consoleSalvo() {
         return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Console:')]"));
     }
 
@@ -104,7 +104,7 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved switch state.
      */
-    public String switchSalvo(){
+    public String switchSalvo() {
         return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Switch:')]"));
     }
 
@@ -113,7 +113,7 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved checkbox state.
      */
-    public String checkboxSalvo(){
+    public String checkboxSalvo() {
         return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Checkbox:')]"));
     }
 

@@ -5,8 +5,11 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,6 +66,16 @@ public class BaseTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void espereAteElementoAparecer(By el, int tempo){
+        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), tempo);
+        wait.until(ExpectedConditions.presenceOfElementLocated(el));
+    }
+
+    public void espereAteElementoSerClicavel(By el, int tempo){
+        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), tempo);
+        wait.until(ExpectedConditions.elementToBeClickable(el));
     }
 
     /**

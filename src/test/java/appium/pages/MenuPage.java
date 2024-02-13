@@ -9,6 +9,10 @@ public class MenuPage extends BasePage {
         clicar(MobileBy.xpath("//android.widget.TextView[@text='Formulário']"));
     }
 
+    public void acessarSplash(){
+        clicar(MobileBy.xpath("//android.widget.TextView[@text='Splash']"));
+    }
+
 
 
 }
