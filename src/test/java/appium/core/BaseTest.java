@@ -17,8 +17,16 @@ import java.io.IOException;
 
 public class BaseTest {
 
+    /**
+     * Essa é uma Rule do JUnit, que retorna o nome do teste em execução.
+     * Ela é útil quando você quer realizar alguma ação baseada no nome do teste.
+     *
+     * @Rule é uma modificação ou adição ao comportamento do teste. Nesse caso,
+     * ela permite acessar o nome do atual teste em execução.
+     */
     @Rule
     public TestName testName = new TestName();
+
 
     /**
      * Este método é chamado após todos os testes terem sido executados.
@@ -57,6 +65,12 @@ public class BaseTest {
         }
     }
 
+    /**
+     * Este método é usado para tirar uma captura de tela do estado atual do aplicativo em teste.
+     * A captura de tela é salva como um arquivo .png no diretório "target/screenshots/".
+     * O nome do print é o mesmo do método de teste em execução.
+     * @throws RuntimeException se ocorrer um erro ao copiar o arquivo de captura de tela para o diretório de destino.
+     */
     public void screenshot(){
        File print = DriverFactory.getDriver().getScreenshotAs(OutputType.FILE);
         try {
