@@ -41,3 +41,10 @@ jobs:
         arch: x86_64
         profile: Nexus 6
         script: mvn clean site -Dtest=DesafioFormularioRefatoradoTest.java
+
+    - name: Check test result
+      run: |
+        if [ $? -ne 0 ]; then
+          echo "Tests failed. Exiting with a non-zero status code."
+          exit 1
+        fi
