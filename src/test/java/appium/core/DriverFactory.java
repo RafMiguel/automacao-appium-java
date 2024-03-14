@@ -6,7 +6,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
@@ -43,7 +42,6 @@ public class DriverFactory {
             throw new RuntimeException(e);
         }
         driver = new AndroidDriver<MobileElement>(route, caps);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
 

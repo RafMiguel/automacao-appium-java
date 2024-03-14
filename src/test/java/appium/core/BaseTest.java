@@ -5,20 +5,18 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Esta classe base fornece métodos comuns que são executados durante os testes.
  */
 
-public class BaseTest {
+public class BaseTest extends DriverFactory {
 
     /**
      * Essa é uma Rule do JUnit, que retorna o nome do teste em execução.
@@ -38,7 +36,7 @@ public class BaseTest {
 
     @AfterClass
     public static void encerrarDriver() {
-        DriverFactory.killDriver();
+        killDriver();
     }
 
     /**
@@ -50,7 +48,7 @@ public class BaseTest {
     @After
     public void resetarApp(){
         screenshot();
-        DriverFactory.getDriver().resetApp();
+        getDriver().resetApp();
 
     }
 
@@ -68,14 +66,8 @@ public class BaseTest {
         }
     }
 
-    public void espereAteElementoAparecer(By el, int tempo){
-        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), tempo);
-        wait.until(ExpectedConditions.presenceOfElementLocated(el));
-    }
-
-    public void espereAteElementoSerClicavel(By el, int tempo){
-        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), tempo);
-        wait.until(ExpectedConditions.elementToBeClickable(el));
+    public void timeout(int tempo){
+        getDriver().manage().timeouts().implicitlyWait(tempo, TimeUnit.SECONDS);
     }
 
     /**
@@ -85,11 +77,11 @@ public class BaseTest {
      * @throws RuntimeException se ocorrer um erro ao copiar o arquivo de captura de tela para o diretório de destino.
      */
     public void screenshot(){
-       File print = DriverFactory.getDriver().getScreenshotAs(OutputType.FILE);
+       File print = getDriver().getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(print, new File("target/screenshots/"+testName.getMethodName()+".png"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Falha ao realizar o screenshot da tela! ",e);
         }
     }
 }

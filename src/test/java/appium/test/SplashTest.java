@@ -13,16 +13,16 @@ public class SplashTest extends BaseTest {
     private final SplashPage splash = new SplashPage();
 
     @Test
-    public void aguardarSplashSumir() {
+    public void validarVisibilidade_Invisibilidade_doSplash() {
 
         //acessar menu splash
-        menu.acessarSplash();
+        menu.acessarSplash(10);
         //verificar que o splash está sendo exibido
-        splash.telaSplashVisivel();
+        splash.telaSplashVisivel(5);
         //aguardar encerramento do splash
-        splash.esperarSpashAcabar();
+        splash.esperarSpashAcabar(10);
         //verificar a exibição do formulário
-        Assert.assertEquals("Formulário", menu.pegarTexto(MobileBy.xpath("//*[@text='Formulário']")));
+        Assert.assertEquals("Formulário", menu.obterTexto(MobileBy.xpath("//*[@text='Formulário']"), 10));
 
     }
 

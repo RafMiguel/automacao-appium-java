@@ -16,15 +16,16 @@ public class SplashPage extends BasePage {
      *
      * @return boolean - retorna verdadeiro se elementos com o texto "Splash!" são encontrados, caso contrário, retorna falso.
      */
-    public boolean telaSplashVisivel() {
-        return existeElementosPorTexto("Splash!");
+    public boolean telaSplashVisivel(int timeout) {
+        return existeElementosPorTexto("Splash!", timeout);
     }
 
     /**
      * Este método espera até que a tela Splash desapareça.
      * Ele faz isso aguardando até que o elemento com o texto "Splash!" se torne invisível.
      */
-    public void esperarSpashAcabar() {
+    public void esperarSpashAcabar(int timeout) {
+
         DriverFactory.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait waitSpashEncerrar = new WebDriverWait(DriverFactory.getDriver(), 10);
         waitSpashEncerrar.until(ExpectedConditions.invisibilityOfElementLocated(MobileBy.xpath("//*[@text='Splash!']")));

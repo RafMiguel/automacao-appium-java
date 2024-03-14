@@ -5,14 +5,17 @@ import io.appium.java_client.MobileBy;
 
 public class MenuPage extends BasePage {
 
-    public void acessarFormulario(){
-        clicar(MobileBy.xpath("//android.widget.TextView[@text='Formulário']"));
+    public void acessarFormulario(int timeout) {
+        clicar(MobileBy.xpath("//android.widget.TextView[@text='Formulário']"), timeout);
     }
 
-    public void acessarSplash(){
-        clicar(MobileBy.xpath("//android.widget.TextView[@text='Splash']"));
+    public void acessarSplash(int timeout) {
+        clicar(MobileBy.xpath("//android.widget.TextView[@text='Splash']"), timeout);
     }
 
+    public void acessarAlert(int timeout) {
+        clicar(MobileBy.xpath("//android.widget.TextView[@text='Alertas']"), timeout);
+    }
 
 
 }

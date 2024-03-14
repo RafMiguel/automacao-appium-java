@@ -10,8 +10,8 @@ public class FormularioPage extends BasePage {
      *
      * @param texto The text to be entered in the name field.
      */
-    public void preencherCampoNome(String texto) {
-        digitar(MobileBy.AccessibilityId("nome"), texto);
+    public void preencherCampoNome(String texto, int timeout) {
+        digitar(MobileBy.AccessibilityId("nome"), texto, timeout);
     }
 
     /**
@@ -19,8 +19,8 @@ public class FormularioPage extends BasePage {
      *
      * @return The text from the name field.
      */
-    public String nomePreenchidoNoCampoNome() {
-        return pegarTexto(MobileBy.AccessibilityId("nome"));
+    public String nomePreenchidoNoCampoNome(int timeout) {
+        return obterTexto(MobileBy.AccessibilityId("nome"), timeout);
     }
 
     /**
@@ -28,9 +28,9 @@ public class FormularioPage extends BasePage {
      *
      * @param numeroItem The index of the item to be selected from the dropdown.
      */
-    public void escolherConsole(int numeroItem) {
-        clicar(MobileBy.className("android.widget.Spinner"));
-        clicarLista(MobileBy.xpath("//android.widget.ListView/android.widget.CheckedTextView"), numeroItem);
+    public void escolherConsole(int numeroItem, int timeout) {
+        clicar(MobileBy.className("android.widget.Spinner"), 10);
+        clicarLista(MobileBy.xpath("//android.widget.ListView/android.widget.CheckedTextView"), numeroItem, timeout);
     }
 
     /**
@@ -38,22 +38,22 @@ public class FormularioPage extends BasePage {
      *
      * @return The text of the selected item in the console dropdown.
      */
-    public String consoleEscolhido() {
-        return pegarTexto(MobileBy.xpath("//android.widget.Spinner/android.widget.TextView"));
+    public String consoleEscolhido(int timeout) {
+        return obterTexto(MobileBy.xpath("//android.widget.Spinner/android.widget.TextView"), timeout);
     }
 
     /**
      * Clicks on the checkbox.
      */
-    public void clicarCheckbox() {
-        clicar(MobileBy.className("android.widget.CheckBox"));
+    public void clicarCheckbox(int timeout) {
+        clicar(MobileBy.className("android.widget.CheckBox"), timeout);
     }
 
     /**
      * Clicks on the switch.
      */
-    public void clicarSwitch() {
-        clicar(MobileBy.className("android.widget.Switch"));
+    public void clicarSwitch(int timeout) {
+        clicar(MobileBy.className("android.widget.Switch"), timeout);
     }
 
     /**
@@ -61,8 +61,8 @@ public class FormularioPage extends BasePage {
      *
      * @return The checked attribute of the checkbox.
      */
-    public String checkboxChecado() {
-        return pegarAtributo(MobileBy.className("android.widget.CheckBox"), "checked");
+    public String checkboxChecado(int timeout) {
+        return pegarAtributo(MobileBy.className("android.widget.CheckBox"), "checked", timeout);
     }
 
     /**
@@ -70,15 +70,15 @@ public class FormularioPage extends BasePage {
      *
      * @return The checked attribute of the switch.
      */
-    public String switchHabilitado() {
-        return pegarAtributo(MobileBy.className("android.widget.Switch"), "checked");
+    public String switchHabilitado(int timeout) {
+        return pegarAtributo(MobileBy.className("android.widget.Switch"), "checked", timeout);
     }
 
     /**
      * Clicks on the save button.
      */
-    public void salvarEscolhas() {
-        clicar(MobileBy.AccessibilityId("save"));
+    public void salvarEscolhas(int timeout) {
+        clicar(MobileBy.AccessibilityId("save"), timeout);
     }
 
     /**
@@ -86,8 +86,8 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved name.
      */
-    public String nomeSalvo() {
-        return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Nome:')]"));
+    public String nomeSalvo(int timeout) {
+        return obterTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Nome:')]"), timeout);
     }
 
     /**
@@ -95,8 +95,8 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved console.
      */
-    public String consoleSalvo() {
-        return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Console:')]"));
+    public String consoleSalvo(int timeout) {
+        return obterTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Console:')]"), timeout);
     }
 
     /**
@@ -104,8 +104,8 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved switch state.
      */
-    public String switchSalvo() {
-        return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Switch:')]"));
+    public String switchSalvo(int timeout) {
+        return obterTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Switch:')]"), timeout);
     }
 
     /**
@@ -113,9 +113,8 @@ public class FormularioPage extends BasePage {
      *
      * @return The saved checkbox state.
      */
-    public String checkboxSalvo() {
-        return pegarTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Checkbox:')]"));
+    public String checkboxSalvo(int timeout) {
+        return obterTexto(MobileBy.xpath("//android.widget.TextView[contains(@text, 'Checkbox:')]"), timeout);
     }
-
 
 }
