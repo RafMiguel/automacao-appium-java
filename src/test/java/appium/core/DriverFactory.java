@@ -10,6 +10,7 @@ import java.net.URL;
 public class DriverFactory {
 
     private static AndroidDriver<MobileElement> driver;
+    private static BaseTest base = new BaseTest();
     static String app = System.getProperty("user.dir") + ("/src/test/resources/app/");
 
     /**
@@ -42,6 +43,7 @@ public class DriverFactory {
             throw new RuntimeException(e);
         }
         driver = new AndroidDriver<MobileElement>(route, caps);
+        base.timeout(20);
 
     }
 

@@ -19,7 +19,7 @@ public class DesafioFormularioRefatoradoTest extends BaseTest {
     @Before
     public void setApp() {
         //driver = DriverFactory.getDriver();
-        menu.acessarFormulario(20);
+        menu.acessarFormulario(15);
     }
     @Test
     public void CT01_acessarFormularioEPreencherNome() {
